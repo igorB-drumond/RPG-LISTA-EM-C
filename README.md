@@ -1,31 +1,47 @@
-Sistema de Inventário RPG — Estrutura de Dados
-Implementação em linguagem C desenvolvida para a disciplina de Estrutura de Dados, com foco no estudo prático, análise empírica e comparação de desempenho entre Listas Estáticas (Vetores) e Listas Encadeadas (Dinâmicas), além de algoritmos clássicos de busca e ordenação.
-Índice
-Visão Geral
-Funcionalidades
-Estruturas de Dados
-Análise de Complexidade Assintótica
-Algoritmos Implementados
-Busca
-Ordenação
-Como Compilar e Executar
-Estrutura do Código
-Exemplo de Uso e Métricas
-Visão Geral
-O projeto simula um inventário de itens de um jogo de RPG (com atributos como ID, Nome, Tipo e Raridade), permitindo que o usuário escolha em tempo de execução qual estrutura base deseja operar:
-Vetor Estático: Alocação contígua com limite pré-fixado de capacidade (MAX_ITENS = 100). Suporta acesso indexado direto, ordenação e busca binária.
-Lista Simplesmente Encadeada: Alocação puramente dinâmica via ponteiros em tempo de execução (malloc/free), sem limite rígido de memória, porém limitada ao acesso sequencial.
-Funcionalidades
-CRUD de Itens: Inserção, listagem formatada e remoção por chave primária (ID).
-Prevenção de Duplicatas: Validação de unicidade para o identificador (ID).
-Validação de Entrada: Tratamento de entradas inválidas e limpeza de buffer (stdin) para tipos numéricos e textuais.
-Instrumentação de Métricas: Contadores em tempo real para comparações de chaves e movimentações/trocas de dados em memória.
-Compatibilidade Multiplataforma: Suporte à limpeza de tela tanto em ambientes Windows (cls) quanto baseados em POSIX/Linux/macOS (clear).
-Estruturas de Dados
+# Sistema de Inventário RPG — Estrutura de Dados
 
+Implementação em linguagem C desenvolvida para a disciplina de **Estrutura de Dados**, com foco no estudo prático, análise empírica e comparação de desempenho entre **Listas Estáticas (Vetores)** e **Listas Encadeadas (Dinâmicas)**, além de algoritmos clássicos de busca e ordenação.
 
+---
 
-C
+## Índice
+
+- [Visão Geral](#visão-geral)
+- [Funcionalidades](#funcionalidades)
+- [Estruturas de Dados](#estruturas-de-dados)
+- [Análise de Complexidade Assintótica](#análise-de-complexidade-assintótica)
+- [Algoritmos Implementados](#algoritmos-implementados)
+  - [Algoritmos de Busca](#algoritmos-de-busca)
+  - [Algoritmos de Ordenação](#algoritmos-de-ordenação)
+- [Como Compilar e Executar](#como-compilar-e-executar)
+- [Estrutura do Código](#estrutura-do-código)
+- [Exemplo de Uso e Métricas](#exemplo-de-uso-e-métricas)
+- [Considerações Acadêmicas](#considerações-acadêmicas)
+
+---
+
+## Visão Geral
+
+O projeto simula um inventário de itens de um jogo de RPG (com atributos como `ID`, `Nome`, `Tipo` e `Raridade`), permitindo que o usuário escolha em tempo de execução qual estrutura base deseja operar:
+
+- **Vetor Estático:** Alocação contígua com limite pré-fixado de capacidade (`MAX_ITENS = 100`). Suporta acesso indexado direto, ordenação e busca binária.
+- **Lista Simplesmente Encadeada:** Alocação puramente dinâmica via ponteiros em tempo de execução (`malloc`/`free`), sem limite rígido de memória, porém limitada ao acesso sequencial.
+
+---
+
+## Funcionalidades
+
+- **CRUD de Itens:** Inserção, listagem formatada e remoção por chave primária (`ID`).
+- **Prevenção de Duplicatas:** Validação de unicidade para o identificador (`ID`).
+- **Validação de Entrada:** Tratamento de entradas inválidas e limpeza de buffer (`stdin`) para tipos numéricos e textuais.
+- **Instrumentação de Métricas:** Contadores em tempo real para comparações de chaves e movimentações/trocas de dados em memória.
+- **Compatibilidade Multiplataforma:** Suporte à limpeza de tela tanto em ambientes Windows (`cls`) quanto baseados em POSIX/Linux/macOS (`clear`).
+
+---
+
+## Estruturas de Dados
+
+```c
 typedef struct {
     int id;           // Identificador único
     char nome[50];    // Nome do item (ex: "Excalibur")
